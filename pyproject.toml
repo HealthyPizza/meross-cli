@@ -1,0 +1,30 @@
+[project]
+name = "meross-cli"
+version = "0.1.0"
+description = "Pilote tes appareils Meross (lumières, volets) depuis le terminal"
+readme = "README.md"
+authors = [
+    { name = "Flow.L", email = "10816276+HealthyPizza@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "meross-iot>=0.4.10.4",
+    "python-dotenv>=1.2.4",
+    "textual>=8.2.8",
+]
+
+[project.scripts]
+meross = "meross_cli.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
